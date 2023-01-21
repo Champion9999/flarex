@@ -1,0 +1,460 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Eat cells smaller than you and don't get eaten by the bigger ones, as an MMO">
+    <meta name="keywords" content="agario, agar, io, cell, cells, virus, bacteria, blob, game, games, web game, html5, fun, flash">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>Flarex</title>
+
+    <link id="favicon" rel="icon" type="image/png" href="images/favicon2.png">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/fp.min.js"></script>
+    <script src="js/log.js"></script>
+    <script src="js/vector.js"></script>
+    <script src="js/main_out.js"></script> 
+    <script src="js/stylings.js"></script>
+</head>
+
+
+
+<body>
+    
+    <div id="msg" style="font-size: 24px;display: block;color: #00ff00ab"></div>
+
+
+    <div class="modal fade modalStyle" id="inPageModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content ModalContent">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+
+                    <h4 id="inPageModalTitle" class="modal-title" style="color: #fff;"><i class="fa fa-exclamation-triangle" style="color:rgba(255, 0, 0, 0.959)" aria-hidden="true"> </i>Waiting to load...</h4>
+                </div>
+                <div id="inPageModalBody" class="modal-body">
+                    <div class="center">
+                        <i class="fa fa-refresh fa-spin fa-3x fa-fw" aria-hidden="true" style="color:#fff"></i>
+                            <span class="sr-only">Refreshing...</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn skinsClose" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="overlays">
+        
+        <div id="helloDialog">
+            <form role="form">
+                <div class="form-group">
+                    <h2 id="title" class="t-1">Flarex</h2> <br> <br>
+                </div>
+
+                <div class="form-group">
+                    <input id="nick" class="form-control save" data-box-id="0" placeholder="Nick" maxlength="15">
+                    <br clear="both">
+                </div>
+
+                <div class="form-group">
+
+                    <input id="skin" class="form-control save" data-box-id="9" placeholder="Skin" maxlength="15" style="width: 60%; display: inline-block;display: none">
+                </div>
+
+                <!--<div class="form-group">
+                    <input id="server" class="form-control" data-box-id="1" placeholder="Server" />
+                    <button id="connect" class="btn btn-success" onclick="setserver($('#server').val()); return false;">Connect</button>
+                    <br clear="both" />
+                </div>-->
+
+                <div class="form-group">
+                    <span type="submit" id="play-btn" onclick="setNick(document.getElementById('nick').value, document.getElementById('skin').value); return false;" class="btn btn-play btn-primary btn-needs-server">Play</span>
+                    <span id="spectate-btn" onclick="spectate(); return false;" class="btn btn-warning btn-spectate btn-needs-server">Spectate<img class="spinner" src="images/circle_notch.png" style="display: none;">
+                    </span>
+                
+                    <br clear="both">
+                </div>
+
+                <div id="settings" class="checkbox" style="display:none;">
+                        
+                </div>
+            </form>
+
+
+            <hr style="border: 1px solid rgb(48, 48, 48);
+            border-radius: 5px;">
+            <div id="footer" style="color: #fff;">
+                <a href="https://discord.gg/tH3wQXwQ6r"><img src="images/discord.png" width="48" height="48"></a>
+                <span class="t-1" style="font-size: 20px;">Flarex Discord Community</span> <hr style="border: 1px solid rgb(48, 48, 48);
+            border-radius: 5px;"> 
+            <div style="text-align: center;text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;">or contact us at : game@flarex.fun</div>
+            </div> <br>
+     
+        </div>
+
+<div id="authDialog">
+            <form role="form">
+                <div class="form-group">
+                    <h2 id="title" class="t-1" style="font-size: 25px;">Login / Signup</h2> <br> 
+                <hr style="border: 1px solid rgb(48, 48, 48);">
+            </div>
+
+                <div id="auth-description">
+
+                </div>
+                
+                <div id="choose-panel2">
+                    <div id="cLogin" class="chooseBtn2" role="button" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;"><i class="fa fa-user" aria-hidden="true"></i>
+                        Login
+                    </div>
+                    <div id="cSignup" class="chooseBtn2" role="button" style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;"><i class="fa fa-user-plus" aria-hidden="true"></i>
+                        Signup
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div id="loginForm" style="display: block;">           
+                    <input class="form-control save" style="background-color:#1a1a1a;color:#fff" id="username" data-box-id="15" type="Username" name placeholder="Username" required><br>
+                    <input class="form-control save" style="background-color:#1a1a1a;color:#fff" id="password" data-box-id="16" type="Password" name placeholder="Password" required><br>
+                <div id="login-st" class="redeem-gift" onclick="getLoginString();">Login</div>
+                </div>
+                <div id="AccInfo" style="display: none;">           
+                    <h5 class="loginStyle">
+                      <div id="accUser" class="t-1" style="font-size: 20px;"></div>                </h5>
+                      <!-- <hr style="border: 1px solid rgb(48, 48, 48);"> -->
+                        <div id="coinDashboard">
+                            <!-- coins -->
+                     <img src="images/coin.png" id="cImage">
+                     <div id="accCoins" class="cDashTxt" style="font-size: 15px;color: #fff;"></div>
+                    </div><br>
+                      <div id="shop-btn" onclick="openShop();">Shop</div>
+                      <!-- <div id="accCoins" class="t-1" style="font-size: 20px;"></div><br><br></img> -->
+                      <div id="accRole" class="accTypeTxt"></div>
+                      <hr style="border: 1px solid rgb(48, 48, 48);">
+                      <div id="accColor" class="accTypeTxt"></div>
+                      <div id="accColor2" class="accTypeTxt"></div>
+                      <div id="accColor3" class="accTypeTxt"></div>
+                      <div id="accColor4" class="accTypeTxt"></div>
+                      <div id="accColorWinter" class="accTypeTxt"></div>
+                      <div id="icons" class="accTypeTxt"></div>
+                      <img src="images/logout.png" class="logout" id="test" onclick="logout();" title="Logout">
+                </div>
+                <div id="signupForm" style="display: block;">    
+                    <div id="regErr" style="display: none;"></div><br>
+                    <input class="form-control" style="background-color:#1a1a1a;color:#fff" id="username2" data-box-id="17" type="Username" name placeholder="Username" maxlength="20" required><br>
+                    <input class="form-control" style="background-color:#1a1a1a;color:#fff" id="password2" data-box-id="18" type="Password" name placeholder="Password" maxlength="40" required><br>
+                    <input class="form-control" style="background-color:#1a1a1a;color:#fff" id="email" data-box-id="19" type="email" name placeholder="email" maxlength="40" required><br>
+                    <div class="redeem-gift" onclick="getSignupString();">Signup</div>   
+                </div>
+                </div>
+            </form>     
+        </div>
+    
+    
+
+        <div id="infoDialog">
+            <form role="form">
+                <div class="form-group"><br>
+                    <h2 class="t-1" style="font-size: 25px;">Beta Features</h2><br>
+                </div>
+
+                <div id="auth-description">
+
+                </div>
+
+                <div class="form-group">
+            <!-- HTML !-->
+                </div>
+            </form>
+            
+<button id="skinBtn" data-toggle="modal" data-target="#inPageModal" onclick="openSkinsList();" class="button-26" role="button" style="width: 100%;">Skins Gallery</button>
+           
+            <hr style="border: 1px solid rgb(48, 48, 48);
+            border-radius: 5px;"> 
+               <!-- <div role="button" onclick="setserver('localhost:8080')">
+                    <div id="server-btn"><th>Server</th><th>Players</th>
+                    </div>
+                    <span class="change-server-btn">Ability War | Free For All <span id="PlayerCountS1">--</span></span>
+                    <button></button>  <br>
+                    
+    
+                </div> -->
+
+                <h1 id="ModMSG" class="mod-msg-text" style="font-size: 15px;"></h1> <br>
+
+                <div id="choose-panel">
+                    <div id="cSettings" class="chooseBtn" role="button" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;"><i class="fa fa-cog" aria-hidden="true"></i>
+                        Settings
+                    </div>
+                    <div id="cControls" class="chooseBtn" role="button">
+                        Controls
+                    </div>
+                    <div id="cServers" class="chooseBtn highlighted" role="button" style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;"><i class="fa fa-server"></i>
+                        Servers
+                    </div>
+                </div>
+                
+
+
+                <div id="servers" style="display: block;">                
+                    <div role="button">
+                        <div class="server" style="background-color: #4f4f4f;"> Server</div>
+                        <div class="playerCount" style="background-color: #4f4f4f;"> Players</div>
+                    </div>
+                    <div role="button" onclick="setserver('66.22.152.213:8080')">
+                        <div class="server">Ability Fight </div>
+                        <div class="playerCount" id="playerCount1">? / 100</div>
+                    </div>
+                    <div role="button" onclick="betaserver()">
+                        <div class="server"> Hardcore [Hard]</div>
+                        <div class="playerCount" id="playerCount2">? / 100</div>
+                    </div>
+                </div>
+
+
+                 
+                <div id="controls">
+                    <div class="controlRow">
+                        Split <div id="split" class="controlBtn" role="button">Space </div></div>
+                    <div class="controlRow">
+                        Feed <div id="feed" class="controlBtn" role="button">W</div></div>
+                    <div class="controlRow">
+                        Recombine <div id="recombine" class="controlBtn" role="button">E</div></div>
+                    <div class="controlRow">
+                        Double Split <div id="double" class="controlBtn" role="button">D</div> </div>
+                        <div class="controlRow">
+                            Growth Pellet <div id="pellets" class="controlBtn" role="button">1</div> </div>          
+                    <div class="controlRow">
+                        Push <div id="push" class="controlBtn" role="button">T</div> </div>
+                    <div class="controlRow">
+                        Macro Split <div id="zmacro" class="controlBtn" role="button">Z</div></div>
+                        <div class="controlRow">
+                            sinshot <div id="sinshot" class="controlBtn" role="button">P</div>  </div>
+                    <h4><b>Powerups</b></h4>
+                    <div class="controlRow">
+                        V Feed <div id="vfeed" class="controlBtn" role="button">V</div>  </div>
+                    <div class="controlRow">
+                        Virus <div id="virus" class="controlBtn" role="button">X</div>  </div>
+                    <div class="controlRow">
+                        Respawn <div id="respawn" class="controlBtn" role="button">M</div>  </div>
+                    <div class="controlRow">
+                        Freeze <div id="freeze" class="controlBtn" role="button">F</div>  </div>
+                    <div class="controlRow">
+                        Escape key <div id="esc" class="controlBtn" role="button">ESC</div>  </div>
+                        <div class="controlRow">
+                            Shoot Frozen Virus <div id="blackhole" class="controlBtn" role="button">Y</div>  </div>    
+                        <div class="controlRow">
+                            Portal <div id="portal" class="controlBtn" role="button">R</div>  </div>
+                    <div class="controlRow">
+                        Anti-Merge <div id="anti" class="controlBtn" role="button">4</div>  </div>                                
+                        <button id="reset-controls">
+                        Default Controls</button> <br>
+                </div>
+
+
+
+
+            
+ <div id="settings2" class="checkbox" style="display:none;">
+                    <div class="form-group" id="mainform">
+            
+                        <br clear="both">
+                    </div>
+                    <div style="margin: 6px;color: aliceblue;">
+                        <label>
+                            <input type="checkbox" class="save" data-box-id="2" onchange="setSkins(!$(this).is(':checked'));"><b>No skins</b></label>
+                        <label>
+                            <input type="checkbox" class="save" data-box-id="3" onchange="setNames(!$(this).is(':checked'));"><b> No names</b></label>
+                        <label>
+                            <input type="checkbox" class="save" data-box-id="4" onchange="setDarkTheme($(this).is(':checked'));"><b>Dark Theme</b></label>
+                        <label>
+                            <input type="checkbox" class="save" data-box-id="5" onchange="setColors($(this).is(':checked'));"><b> No colors</b></label>
+                        <label>
+                            <input type="checkbox" class="save" data-box-id="6" onchange="setShowMass($(this).is(':checked'));"><b> Show mass</b></label>
+                        <label>
+                            <input type="checkbox" class="save" data-box-id="7" onchange="setSmooth($(this).is(':checked'));"><b> Smooth Render</b></label>
+                        <label>
+                                <input type="checkbox" class="save" data-box-id="8" onchange="setChatHide($(this).is(':checked'));"><b> Hide Chat</b></label>
+                        <label>
+                            <input type="checkbox" class="save" data-box-id="9" onchange="setBorder($(this).is(':checked'));" checked value="false"><b> Map Border</b></label>
+                         <label>
+                             <input type="checkbox" class="save" data-box-id="10" onchange="setSelg($(this).is(':checked'));" value="false"><b> Selection Grid</b></label>
+                          <label>
+                                <input type="checkbox" class="save" data-box-id="100" onchange="setStroke($(this).is(':checked'));" value="false"><b>Name Outlines</b></label>
+                           <label>     
+                                <input type="checkbox" class="save" data-box-id="101" onchange="hidePws($(this).is(':checked'));" value="false"><b>Hide Power images</b></label>
+                           <label>
+                        </label></div>
+                        <hr style="border: 1px solid rgb(48, 48, 48);
+            border-radius: 5px;">
+            <div class="redeem-gift" onclick="openRedeemDialog();">Redeem a gift code!</div><br><br>
+            <hr style="border: 1px solid rgb(48, 48, 48);"> 
+            
+             
+
+                </div>
+    
+
+            </div>         
+
+            <div id="shop-panel" class="shop-panel" style="transform: scale(0.797656); display: none;">
+                <div id="shop-container">
+                    <h1><b class="t-1">Flarex Shop</b></h1>
+                    <div id="shop-exitBtn" role="button">x</div>
+
+                    <h3 class="shop_header" style="padding: 10px;">
+                        Welcome to the in-game Shop! <br> Here you can buy different items for the game.
+                        
+                        </h3>       
+                            
+                            </div>
+
+                            <button id="ability-btn">Abilities 
+                            </button><button id="wearable-btn">Wearables
+                                </button><br>
+                            <h5 id="coinsBoxShadow">
+                            <div style="padding: 5px 0;padding-left: 0%;color: rgb(255, 208, 0);font-size: 15px;" id="coinTitle"><b>COINS :</b></div>
+                            <div id="shopCoinsDash">Not logged in</div></h5>
+
+
+
+                
+
+                          <div id="ability-list" style="display: block;">
+                                
+                            <div class="item-box">
+                                <br>
+                                <div class="shop-itemTitle" style="color: #19CEFF;">Winter Nickname</div>
+                                <img class="shop-itemImage" src="images/cold_nick.png"><br>
+                             <img src="images/coin.png" id="itemCoin">
+                                <span id="itemText">1 000 000</span><br>
+                                <div onclick="purchase(1)" class="shop-itemPurchase" id="winterNickBtn">Buy Now</div>
+                                <br>
+                                <img src="images/help.png" id="questionIcon" onclick="swal({type: " ", title: "", text: "<b>This item is limited edition, and can be purchased one time only during the new year season! <br><br>Price : 1,000,000", html: true})"></div>
+         
+                            
+
+
+                            <div class="item-box">
+                                <br>
+                                <div class="shop-itemTitle">x2 Speed Potion (60s)</div>
+                                <img class="shop-itemImage" style="width: 35%" src="images/speed.png"><br>
+        
+                             <img src="images/coin.png" id="itemCoin">
+                                <span id="itemText">50 000</span><br>
+                                <div onclick="purchase(2)" class="shop-itemPurchase" id="winterNickBtn">Buy Now</div>
+                                <br>
+                                <img src="images/help.png" id="questionIcon" onclick="swal({type: " ", title: "", text: "<b>Give your cells a boost up with this item, its amazing if you are in a fight with your ennemies or in other cases. <br><br>Price : 10,000", html: true})"></div>
+       
+
+
+                            <div class="item-box">
+                                <br>
+                                <div class="shop-itemTitle">Mystery kill</div>
+                                <img class="shop-itemImage" style="width: 35%;" src="images/skull.png"><br>
+        
+                             <img src="images/coin.png" id="itemCoin">
+                                <span id="itemText">250 000</span><br>
+                                <div onclick="purchase(3)" class="shop-itemPurchase" id="winterNickBtn">Buy Now</div>
+                                <br>
+                                <img src="images/help.png" id="questionIcon" onclick="swal({type: " ", title: "", text: "<b>Wanna troll each player in the server? <br> By purchasing this you will kill every player in the server <br><br>Price : 100,000", html: true})"></div>
+                     
+
+                        </div><div id="wearable-list" style="display: none;">
+
+                            <div class="wear-box">
+                                <br>
+                                <img class="wear-itemImage" style="background-image: radial-gradient(circle, #ff0000b0, transparent);" src="images/2.png"><br>
+                            
+                                <div class="wear-title" style="color: rgb(255, 0, 234);">Santa Hat</div>
+                                <div onclick="purchase(4)" class="wear-itemPurchase" id="wear-purchase">Buy 4,000,000</div>
+                                <div onclick="useWearable(2)" class="wear-itemPurchase2" id="wear-purchase" style="display: none;">Use</div>
+                                <br><br><br>
+
+                                <!-- <img src="assets/img/help.png" id="questionIcon" onclick='swal({type: "", title: "", text: "<b>Special new year santa wearable that can make you look cooler against others and style your cells <br><br>Price : 4,000,000", html: true})'></div> -->
+                        
+                        </div>
+
+
+        
+
+                            <div class="wear-box">
+                                <br>
+                                <img class="wear-itemImage" style="background-image: radial-gradient(circle, #ff4800b0, transparent);" src="images/1.png"><br>
+                            
+                                <div class="wear-title" style="color: rgb(255, 153, 0);">Starmember Hat</div>
+                                <div onclick="swal({type: " ", title: `<img class="wear-itemImage" style="background-image: radial-gradient(circle, #ff4800b0, transparent);" src="assets/wearables/1.png">`, text: "This special wearable is only given to special supporters who support the game by buying a long term star membership", html: true})" class="wear-purchase" id="wear-purchase2">Limited Edition</div>
+                                <div onclick="useWearable(1)" class="wear-purchase" id="wear-star-use" style="display: none;">Use</div>
+                                <br><br><br>
+
+                                <!-- <img src="assets/img/help.png" id="questionIcon" onclick='swal({type: "", title: "", text: "<b>Special new year santa wearable that can make you look cooler against others and style your cells <br><br>Price : 4,000,000", html: true})'></div> -->
+                        
+                        </div>
+
+                        
+
+
+                            
+                        
+                    </div><table id="shop-table" style="text-align: left;">
+
+
+                            
+
+                            
+
+                        </table>
+
+                </div>
+            </div>
+
+        
+
+        
+        
+        
+
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <input type="text" id="chat_textbox" placeholder="Press enter to send a message!" maxlength="75">
+    <div style="font-family:&#x27;Ubuntu&#x27;"> </div>
+        
+
+        <div id="gameDialog" onclick="hideGameDia()">
+
+
+            <script>
+var _0xd3dab4=_0x2c8b;function _0x2c8b(_0x115c04,_0x8638b2){var _0x13249b=_0x1324();return _0x2c8b=function(_0x2c8b7b,_0x41cebb){_0x2c8b7b=_0x2c8b7b-0x1d8;var _0xd969fb=_0x13249b[_0x2c8b7b];return _0xd969fb;},_0x2c8b(_0x115c04,_0x8638b2);}(function(_0x494f97,_0x171f0a){var _0x3dfc18=_0x2c8b,_0x533fde=_0x494f97();while(!![]){try{var _0x8c3acd=parseInt(_0x3dfc18(0x1ef))/0x1*(parseInt(_0x3dfc18(0x1e6))/0x2)+parseInt(_0x3dfc18(0x1e5))/0x3*(-parseInt(_0x3dfc18(0x1da))/0x4)+parseInt(_0x3dfc18(0x1e0))/0x5+parseInt(_0x3dfc18(0x1ed))/0x6*(-parseInt(_0x3dfc18(0x1ea))/0x7)+parseInt(_0x3dfc18(0x1ec))/0x8*(parseInt(_0x3dfc18(0x1dd))/0x9)+parseInt(_0x3dfc18(0x1e7))/0xa*(-parseInt(_0x3dfc18(0x1ee))/0xb)+parseInt(_0x3dfc18(0x1e1))/0xc*(parseInt(_0x3dfc18(0x1d9))/0xd);if(_0x8c3acd===_0x171f0a)break;else _0x533fde['push'](_0x533fde['shift']());}catch(_0x5f3b9e){_0x533fde['push'](_0x533fde['shift']());}}}(_0x1324,0xd8f2d),window[_0xd3dab4(0x1e4)]=(function(){var _0x3ac6f5=_0xd3dab4,_0x5e452e=new Date()[_0x3ac6f5(0x1de)](),_0x541e6=0x1,_0x229619=0x0;return function(){var _0xe39f45=_0x3ac6f5,_0x15ca14=new Date()[_0xe39f45(0x1de)]();return _0x5e452e>_0x15ca14?(_0x229619=_0x541e6,_0x541e6=0x1):_0x541e6+=0x1,_0x5e452e=_0x15ca14,_0x229619;};}()),function loop(){requestAnimationFrame(function(){var _0xbc910c=_0x2c8b,_0x39068b=document[_0xbc910c(0x1e9)](_0xbc910c(0x1db))[_0xbc910c(0x1eb)];_0x39068b>0x31?document['getElementById'](_0xbc910c(0x1db))[_0xbc910c(0x1d8)]['color']=_0xbc910c(0x1e3):document[_0xbc910c(0x1e9)](_0xbc910c(0x1db))[_0xbc910c(0x1d8)][_0xbc910c(0x1e2)]=_0xbc910c(0x1e8);if(_0x39068b<0x14)document[_0xbc910c(0x1e9)]('fps')[_0xbc910c(0x1d8)][_0xbc910c(0x1e2)]=_0xbc910c(0x1dc);loop(),document[_0xbc910c(0x1e9)](_0xbc910c(0x1db))[_0xbc910c(0x1df)]='\x20\x20'+countFPS();});}());function _0x1324(){var _0x3b5511=['getMilliseconds','innerText','2589975FpsfCC','12KgVIuS','color','#00ff00','countFPS','371289ZbIgjW','45034ChMvpR','730FBuuJk','#FFDC00','getElementById','3898153OUSlhP','innerHTML','1329976MgdUxH','6EbITPd','182446LJJpwl','52TJOUdx','style','6548932jNaTei','28ZwjpmE','fps','#FF0000','72uSyfEP'];_0x1324=function(){return _0x3b5511;};return _0x1324();}
+            </script>
+        
+            <form role="form">
+                <div class="form-group">
+                <span class="t-1" style="font-size: 20px;">Player Stats</span><br>  <!-- the javascript updates it constantly so no need to add any stuff before it but still while its loading its better to have something there before 
+                    js starts updating it!-->
+                <span class="canvas-html-bar">FPS : </span><span id="fps" class="canvas-html-bar" style="color: rgb(255, 220, 0);">  32</span><br>
+                <span id="ping" class="canvas-html-bar">Ping : </span><span id="ping2" class="canvas-html-bar">--</span><br>
+                <span id="CellCount" class="canvas-html-bar">Cells : --</span><br>
+                <span id="PlayerMass" class="canvas-html-bar">Mass : --</span><br>
+                <span id="PlayerScore" class="canvas-html-bar">Score : --</span><br>
+                <span id="freezeStatus" class="canvas-html-bar">Freeze : </span><span id="PlayerFreeze" class="canvas-html-bar">--</span><br>
+                <span id="Players" class="canvas-html-bar">Online : </span><span id="Online" class="canvas-html-bar">--</span><br>
+                </div>
+            
+
+  <script src="js/sweetalert-dev.js"></script>
+  
+  <link rel="stylesheet" href="css/sweetalert.css">
+  <!-- Dont remove this down below otherwise the skin btn wont work!! -->
+  <script src="js/bootstrap.min.js"></script>  
+  
+    
+    
+</form></div></body></html>

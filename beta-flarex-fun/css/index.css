@@ -1,0 +1,1062 @@
+/* GLOBAL */
+/* Imports the fonts */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+
+
+.highlighted2{
+    background-color: #8cb7ff;
+}
+
+
+/*#connecting2 {
+        display: inline-block;
+        position: absolute;
+        padding: 0 15px;
+        z-index: 1500;
+        background: rgba(48, 48, 48, 0.007);
+        color: rgb(255, 255, 255);
+        font-family: Ubuntu, sans-serif;
+        font-size: 18px;
+        border-radius: 90px;
+        font-weight: 700;
+        text-align: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        white-space: pre-wrap;
+    }*/
+    
+
+
+    #msg {
+        display: inline-block;
+        position: absolute;
+        padding: 0 15px;
+        z-index: 1500;
+        background: rgba(0, 0, 0, .8);
+        color: #999;
+        font-family: Ubuntu, sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        text-align: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        white-space: pre-wrap;
+    }
+     
+
+
+#connectingModal {
+    width: 2000px;
+     background-color: #00000069;
+      margin: -50px auto;
+     border-radius: 3px;
+     padding: 5px 15px 5px 15px;
+}
+
+.redeem-gift {
+    width: 100%;
+    float: left;
+	display: block;
+    text-align: center;
+	background-color: #0532ac;
+    border-radius: 2px;
+    color: white;
+	border: 2px solid #4400ff46;
+    border-radius: 5px;
+    margin-right: 22px;
+    margin-top: 1px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/* CSS */
+.button-26 {
+    appearance: button;
+    background-color: #1652F0;
+    border: 1px solid #1652F0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Graphik,-apple-system,system-ui,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+    overflow: visible;
+    padding: 12px 16px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition: all 80ms ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+  }
+
+  #servers {
+    cursor: pointer;
+    display: none;
+    width: 80%;
+    height: 90px;
+    margin-left: 10%;
+    margin-top: 8%;
+    color: white;
+    box-shadow: 0px 1px 1px 3px rgba(0, 102, 255, 0.459);
+    font-family: 'Josefin Sans', sans-serif;
+    
+}
+.server {
+    cursor: pointer;
+    padding: 5px 15px 5px 15px;
+    background-color: #161616;
+    width: 60%;
+    float: left;
+    border-right: 1px solid black;
+    font-family: 'Josefin Sans', sans-serif;
+    
+}
+.playerCount{
+    cursor: pointer;
+    width: 40%;
+    background-color: #161616;
+    padding: 5px 15px 5px 15px;
+    float: left;
+    border-left: 1px solid black;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+  
+  
+  .button-26:disabled {
+    opacity: .5;
+  }
+  
+  .button-26:focus {
+    outline: 0;
+  }
+
+  
+  
+  .button-26:hover {
+    background-color: #0A46E4;
+    border-color: #0A46E4;
+  }
+  
+  .button-26:active {
+    background-color: #0039D7;
+    border-color: #0039D7;
+  } 
+
+
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.controlRow{
+    width: 100%;
+    height: 22px;
+}
+
+#reset-controls {
+    background-color: #313131;
+    border-radius: 10px;
+    margin-top: 15px;
+    text-align: center;
+    border: 3px solid rgb(39, 39, 39);
+    right: 5px;
+    padding: 4px 18px;
+    margin-left: 50px;
+}
+
+#controls {
+    display: none;
+    margin: 10px auto;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 5px 15px 5px 15px;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.controlBtn{
+    background-color: #505050;
+    border-radius: 5px;
+    height: 20px;
+    width: 70px;
+    text-align: center;
+    float: right;
+    box-shadow: 0px 1px 1px 3px rgba(0, 102, 255, 0.459);
+}
+.controlBtn:hover{
+    box-shadow: 0px 1px 1px 3px rgb(0, 102, 255);
+}
+/* Skins Modal! */
+.skinsClose{
+    background-color: #242424;
+    border-radius: 5px;
+    color: #fff;
+    height: 40px;
+    width: 80px;
+    text-align: center;
+    float: right;
+    border: 1px solid white;
+    font-family: 'Josefin Sans', sans-serif;
+    top: 0;
+}
+.skinsClose:hover{
+  color: #fff;
+}
+.ModalContent{
+    background-color: #2e2e2e;
+    box-shadow: 0px 1px 1px 3px rgba(0, 102, 255, 0.459);
+}
+
+
+.highlighted2{
+    background-color: #005eff;
+}
+
+#gameDialog {
+    display: grid;
+    width: 140px;
+    height: 200px;
+    background-color: #1d1d1d98;
+    margin: 10px auto;
+    border-radius: 15px;
+    padding: 5px 15px 5px 15px;
+    position: absolute;
+    margin-top: calc(2% + 1rem);
+    margin-left: calc(1% + 1rem);
+    box-shadow: 0px 1px 1px 3px rgba(0, 102, 255, 0.459);
+
+    
+}
+
+
+#modDialog {
+    display: grid;
+    width: 200px;
+    height: 40px;
+    background-color: #1d1d1d98;
+    margin: 10px auto;
+    border-radius: 15px;
+    padding: 5px 15px 5px 15px;
+    position: absolute;
+    margin-top: calc(10% + 1rem);
+    margin-left: calc(2% + 1rem);
+    box-shadow: 0px 1px 1px 3px rgba(0, 102, 255, 0.459);
+
+    
+}
+
+@media only screen and (max-width: 380px) {
+    #gameDialog {
+        margin-top: calc(5% + 1rem);
+        margin-left: calc(5% + 1rem);
+    }
+}
+@media only screen and (max-width: 180px) {
+    #gameDialog {
+        margin-top: calc(5% + 1rem);
+        margin-left: calc(5% + 1rem);
+    scale: 0.5;
+    }
+}
+
+@media only screen and (max-height: 500px) {
+    #gameDialog {
+        margin-top: calc(5% + 1rem);
+        margin-left: calc(5% + 1rem);
+    scale: 0.5;
+    }
+}
+
+/* IDs */
+
+#overlays {
+    display:none; 
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    top: 0; 
+    bottom: 0; 
+    background-color: 
+    rgba(0,0,0,0.5); 
+    z-index: 200;
+}
+
+#title {
+    padding: 10px;
+}
+
+#canvas {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#connecting {
+    display:none;
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    top: 0; 
+    bottom: 0; 
+    z-index: 100; 
+    background-color: rgba(0,0,0,0.5);
+}
+
+#nick {
+    float: left;
+}
+
+#connect {
+    width: 33%;
+    float: right;
+}
+
+#helloDialog {
+    width: 400px;
+    height: 540px;
+    background-color: #1d1d1dea;
+    margin: 10px auto;
+    border-radius: 15px;
+    padding: 5px 15px 5px 15px;
+    position: absolute;
+    top: calc(50% - 250px);
+    left: calc(50% - 220px);
+    box-shadow: 0px 1px 1px 3px rgba(0, 102, 255, 0.459);
+}
+
+.t-1 {
+    color: red;
+    font-size: min(max(35px, 4vw), 45px);
+    text-shadow: 0 0 30px #006eff;
+    user-select: none;
+    text-align: center;
+    transition: transform .5s;
+    padding: -5px;
+    width: 300px;
+    height: 10px;
+    margin: 0 auto;
+    color: #fff;
+    animation: t-1 1s ease-in-out infinite alternate;
+    font-family: 'Josefin Sans', sans-serif;
+    /* The Text And Hover Anim CSS  */
+    }
+    .t-1:hover {
+      -ms-transform: scale(1.5); /* IE 9 */
+      -webkit-transform: scale(1.5); /* Safari 3-8 */
+      transform: scale(1.2); 
+    }
+    
+    .canvas-html-bar {
+        user-select: none;
+        text-align: center;
+        color: #fff;
+        font-family: 'Josefin Sans', sans-serif;
+    }
+
+    .mod-msg-text {
+        color: red;
+        font-size: min(max(35px, 4vw), 45px);
+        text-shadow: 0 0 30px #09ff00;
+        user-select: none;
+        text-align: center;
+        transition: transform .5s;
+        padding: -5px;
+        width: 300px;
+        height: 10px;
+        margin: 0 auto;
+        color: #fff;
+        animation: t-1 1s ease-in-out infinite alternate;
+        font-family: 'Josefin Sans', sans-serif;
+        /* The Text And Hover Anim CSS  */
+        }
+        .mod-msg-text:hover {
+          -ms-transform: scale(1.5); /* IE 9 */
+          -webkit-transform: scale(1.5); /* Safari 3-8 */
+          transform: scale(1.2); 
+        }
+
+#authDialog {
+    width: 400px;
+    height: 540px;
+    background-color: #1d1d1dea;
+    margin: 10px auto;
+    border-radius: 15px;
+    padding: 5px 15px 5px 15px;
+    position: absolute;
+    top: calc(50% - 250px);
+    left: calc(50% - -200px);
+    box-shadow: 0px 1px 1px 3px rgba(0, 102, 255, 0.459);
+}
+
+.loginStyle {
+    color: #d7dbe1;
+    width: 90%;
+    line-height: 0.8;
+    text-transform: initial;
+    margin: 0 auto;
+     padding: 10px;
+     background-color: #212122;
+     border-radius: 10px;
+      box-shadow: 0px 0px 1px 2px rgba(0, 153, 255, 0.459);
+}
+
+.shop_header {
+    font-size: 19px;
+    margin: 0 auto;
+    border-radius: 10px 10px 10px 10px;
+    margin-top: 10px;
+    padding: 7px;
+    text-align: center;
+    color: #00aeff;
+    background-color: #424141;
+    background: linear-gradient(to bottom, #2c2c2c 0, #2c2c2c 50%, #2c2c2c 51%, #2c2c2c 100%);
+    text-shadow: #030303 4px 4px 4px;
+    box-shadow: 0 0 0.02em #000;
+    margin-bottom: 10px;
+    border-style: solid;
+    font-family: Ubuntu, sans-serif;
+
+}
+.faded2 {
+    opacity: 0.14;
+}
+.low-margin {
+    margin-bottom: -18px;
+}
+
+
+#shop-panel {
+    width: 100%;
+    height: 850px;
+    border-radius: 5px;
+    padding: 0px 15px 5px 15px;
+    background: rgb(49, 49, 49);
+    border: 5px solid #141414;
+    overflow: auto;
+    margin: auto;
+    display: none;
+  }
+  
+  @media (min-width: 1500px) {
+    #shop-panel {
+      width: 1500px;
+    }
+  }
+  
+  #shop-container {
+    color: white;
+    text-align: center;
+  }
+  
+  #cmd-alert {
+    color: rgb(175, 175, 175);
+    font-family: Ubuntu, sans-serif;
+  }
+  
+  #shop-table {
+    width: 100%;
+    font-size: 1.3em;
+    text-align: left;
+  }
+  
+  #shop-exitBtn {
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(255, 0, 0);
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 5px;
+    margin-top: -3.5%;
+  }
+  
+  @media (max-width: 1199px) {
+    #stats-exitBtn {
+      margin-top: -6.5%;
+    }
+  }
+  
+  
+
+#coinDashboard{
+    width: 95%;
+    height: 30px;
+    background-color: rgb(255, 183, 0);
+    border: 4px solid darkgoldenrod;
+    font-weight: bold;
+    margin-top: 5%;
+    margin-left: 3%;
+    border-radius: 20px;
+    font-size: 24px;
+}
+
+.accTypeTxt {
+    color:#FFF;
+    text-align: center;
+    font-family: Ubuntu, sans-serif;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
+}
+
+#regErr{
+    width: 80%;
+    margin-top: 2%;
+    margin-left: 10%;
+    background-color: #f32d2d;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: none;
+}
+
+
+.logout {
+    width: 35px;
+    height: 35px;
+    float: right;
+     cursor: pointer;
+     border-radius: 6px;
+
+}
+
+.cDashTxt {
+    text-align: center;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
+}
+
+ #cImage{ /* coin image */
+    position: absolute;
+    width: 40px;
+    margin-top: -9px;
+    margin-left: -10px;
+    float: left;
+    z-index: 51;
+    border-radius: 40px;
+    border: 2px solid rgb(139, 100, 0);
+}
+
+#infoDialog {
+    width: 400px;
+    height: 540px;
+    background-color: #1d1d1dea;
+    margin: 10px auto;
+    border-radius: 15px;
+    padding: 5px 15px 5px 15px;
+    position: absolute;
+    top: calc(50% - 250px);
+    left: calc(50% + -640px);
+    box-shadow: 0px 1px 1px 3px rgba(0, 102, 255, 0.459);
+}
+
+#chat_textbox {
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    font-family: 'Josefin Sans', sans-serif;
+    position: absolute;
+    z-index: 1;
+    bottom: 10px;
+    background: rgba(0, 0, 0, 0.349);
+    border-radius: 5px;
+    border: 0px;
+    outline: none;
+    color: #FFF;
+    height: 30px;
+    text-indent: 12px;
+    left: 10px;
+    width: 350px;
+}
+
+#chat_textbox:focus {
+    background: rgba(0, 0, 0, .5);
+}
+
+#footer {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.chooseBtn{
+    width: 33.33%;
+    height: 40px;
+    background-color: #4f4f4f;
+    color: white;
+    text-align: center;
+    float: left;
+    border: 2px solid rgba(0, 0, 0, 0.253);
+    padding-top: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.chooseBtn2{
+    width: 33.33%;
+    height: 40px;
+    background-color: #4f4f4f;
+    color: white;
+    text-align: center;
+    float: left;
+    border: 2px solid rgba(0, 0, 0, 0.253);
+    padding-top: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.chooseBtn2.highlighted2{
+    background-color: #005ef5;
+}
+
+.chooseBtn.highlighted{
+    background-color: #458bff;
+}
+
+
+#choose-panel {
+    width: 90%;
+    height: 80px;
+    margin-left: 5%;
+}
+
+#choose-panel2 {
+    width: max(150%);
+    height: 80px;
+    margin-left: 0;
+}
+
+#play-btn {
+    width: 47%;
+    float: left;
+	display: block;
+	background-color: #458bff;
+    border-radius: 2px;
+    color: white;
+	border: 1px solid #0059ff;
+    margin-right: 22px;
+    margin-top: 1px;
+}
+
+#auth-btn {
+    width: 100%;
+}
+
+#settings-btn {
+    width: 13%;
+    float: right;
+}
+
+#spectate-btn {
+    width: 47%;
+	float: right;
+	display: block;
+	background-color: #458bff;
+    border-radius: 5px;
+    color: white;
+	border: 1px solid #0059ff;
+    margin-top: 1px;
+}
+
+#shop-btn {
+    width: 47%;
+	float: right;
+	display: block;
+    color: white;
+    margin-top: 1px;
+    text-align: center;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
+    font-family: Ubuntu, sans-serif;
+    background-color: #ffbb00;
+    border-radius: 10px;
+    border: 2px solid #ffae00;
+    cursor: pointer;
+}
+
+#wearable-btn {
+    float: right;
+    width: 48%;
+    height: 5%;
+    color: #fff;
+    font-size: 20px;
+    font-family: Ubuntu, sans-serif;
+    background-color: #494848;
+    border-radius: 10px;
+    border: 3px solid #555555;
+    transition: background-color 0.5s ease;
+}
+
+#wearable-btn:hover {
+    background-color: #3d3d3d;
+}
+
+#ability-btn {
+    width: 48%;
+    height: 5%;
+    color: #fff;
+    font-size: 20px;
+    font-family: Ubuntu, sans-serif;
+    background-color: #494848;
+    border-radius: 10px;
+    border: 3px solid #555555;
+    transition: background-color 0.5s ease;
+}
+
+#ability-btn:hover {
+    background-color: #3d3d3d;
+}
+
+
+#shopCoinsDash{
+    width: 100%;
+    margin-left: 0%;
+    margin-bottom: 4%;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    background-color: rgb(255, 190, 25);
+    border: 2px solid #ffae00;
+    border-radius: 10px;
+    user-select: none;
+    font-family: Ubuntu, sans-serif;
+    padding: 5px 0;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
+}
+
+#winterNickBtn {
+  border-radius: 5px;
+  color: #fff;
+  padding-bottom: 50px;
+  font-family: Ubuntu, sans-serif;
+  border: 1.6px solid rgb(0, 174, 255);
+  padding: 5px 5px 5px 5px;
+  text-align: center;
+  margin-top: 5%;
+  margin-left: 55%;
+  height: 18%;
+  width: 40%;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #353535;
+  text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
+  user-select: none;
+}
+
+#itemText {
+    color: rgb(255, 196, 0);
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
+    user-select: none;
+    font-size: 18px;
+    font-family: Ubuntu, sans-serif;
+}
+
+#itemCoin {
+    height: 25px;
+    width: 25px;
+    font-family: Ubuntu, sans-serif;
+}
+
+#questionIcon {
+    height: 30px;
+    width: 30x;
+    padding-bottom: -20px;
+}
+
+.item-box{
+    width: 20%;
+    height: 25%;
+    margin-left: 3.5%;
+    background-color: rgba(42, 40, 58, 0.842);
+    border-radius: 10px;
+    border: 2px solid rgba(0, 174, 255, 0.336);
+    margin-top: 3%;
+    float: left;
+    text-align: center;
+}
+
+.shop-itemTitle{
+    margin-top: -6.6%;
+    padding-top: 2%;
+    height: 20%;
+    color: rgb(255, 255, 255);
+    border-radius: 9px 9px 0px 0px;
+    background-color: rgb(83, 83, 83);
+    text-align: center;
+    font-size: 19px;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black; 
+    font-family: Ubuntu, sans-serif;
+}
+
+.shop-itemImage{
+    height: 50%;
+    width: 40%;
+    margin-top: 2%;
+    margin-left: 5%;
+    float: left;
+    border-radius: 20px;
+    /* border: 2px solid black; */
+}
+
+.wear-box {
+    width: 30%;
+    height: 105%;
+    margin-left: 3.5%;
+    background-color: #2C2836;
+    border-radius: 10px;
+    border: 2px solid #00AEFF;
+    margin-top: 3%;
+    float: left;
+    text-align: center;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); /* add a subtle shadow to the element */
+    transition: all 0.3s ease; /* add a transition effect */
+  }
+  
+  .wear-box:hover {
+    background-size: cover; /* scale the background image to cover the entire element */
+    background-position: center; /* position the background image in the center of the element */
+    background-repeat: no-repeat; /* do not repeat the background image */
+    transform: scale(1.1); /* scale up the element on hover */
+  }
+
+  .wear-title{
+    padding-top: 5%;
+    font-size: 200%;
+    text-align: center;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black; 
+    font-family: Ubuntu, sans-serif;
+  }
+  
+  
+  
+  
+
+#wear-purchase::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0051FF;
+    z-index: -1;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black; 
+  }
+  
+  #wear-purchase {
+    width: 80%;
+    height: 13%;
+    background-color: #474747;
+    border-radius: 10px;
+    border: 2px solid #0051FF;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    font-family: Ubuntu, sans-serif;
+    position: relative; /* add position: relative to the button */
+    float: left;
+    margin-top: 5%;
+    margin-left: 10%;
+    padding-top: 5px;
+    margin-bottom: 3%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black; 
+  }
+  
+  #wear-purchase:hover {
+    background-color: #444444;
+    border-color: #474747;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black; 
+  }
+  
+  #wear-purchase:active {
+    transform: scale(0.9);
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black; 
+  }
+
+
+  #wear-purchase::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0051FF;
+    z-index: -1;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black; 
+  }
+
+
+  /* These are used for the premium wearables */
+  
+  .wear-purchase {
+    width: 80%;
+    height: 13%;
+    background-color: #474747;
+    border-radius: 10px;
+    border: 2px solid #0051FF;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    font-family: Ubuntu, sans-serif;
+    position: relative; /* add position: relative to the button */
+    float: left;
+    margin-top: 5%;
+    margin-left: 10%;
+    padding-top: 5px;
+    margin-bottom: 3%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black; 
+  }
+  
+  .wear-purchase:hover {
+    background-color: #444444;
+    border-color: #474747;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black; 
+  }
+  
+  .wear-purchase:active {
+    transform: scale(0.9);
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black; 
+  }
+  
+  /* end */
+
+.wear-itemTitle{
+    margin-top: -4.5%;
+    padding-top: 2%;
+    height: 20%;
+    color: rgb(255, 255, 255);
+    border-radius: 9px 9px 0px 0px;
+    background-color: rgb(83, 83, 83);
+    text-align: center;
+    font-size: 19px;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black; 
+    font-family: Ubuntu, sans-serif;
+}
+
+.wear-itemImage {
+    height: 55%;
+    width: 50%;
+    margin-top: 2%;
+    margin-left: 5%;
+    border-radius: 20px;
+    background-image: radial-gradient(circle, #ffa07a5b, transparent); /* create a glowing effect */
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
+    -webkit-user-select: none; /* webkit browsers */
+    -moz-user-select: none; /* firefox */
+    -ms-user-select: none; /* internet explorer */
+    user-select: none; /* standard syntax */
+    box-shadow: 0 0 5px rgb(203, 71, 255); /* add a subtle shadow */
+    transition: all 1s ease; /* make the transition slower */
+  }
+  
+  .wear-itemImage:hover {
+    transform: scale(1.1) rotate(5deg); /* scale up and rotate the element on hover */
+    animation: shake 1s ease 1; /* make the animation slower and run only once */
+  }
+  
+  
+  
+  
+  
+  
+  
+
+
+#coinsBoxShadow{
+    width: 200px;
+    background-color: #373e4d;
+    border: 2px solid #273652;
+    border-radius: 5px;
+}
+
+#coinTitle {
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black; 
+    font-family: Ubuntu, sans-serif;
+}
+
+
+.ht-tx {
+    text-align: center;
+    color: #fff;
+    user-select: none;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+
+#server-btn {
+    width: 100%;
+	float: right;
+	display: block;
+    border-radius: 2px;
+    text-align: center;
+	background-color: #0a57ca;
+    color: white;
+	border: 1px solid #00ffff;
+    margin-top: 10px; 
+    font-family: 'Josefin Sans', sans-serif;
+}
+#server-select-btn {
+    width: 100%;
+	float: right;
+	display: block;
+    border-radius: 2px;
+    text-align: center;
+	background-color: #1900ff;
+    color: white;
+	border: 1px solid #00ffff;
+    margin-top: 10px; 
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+/* CLASSES */
+
+.checkbox label {
+    margin-right: 10px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.loader {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+.center {
+    display: table;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

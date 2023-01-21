@@ -1,0 +1,1 @@
+var log={info:function(n){console.debug("[INFO]",n)},warn:function(n){console.warn("[WARN]",n)},err:function(n){console.error("[ERROR] ",n)},debug:function(n){console.info("[DEBUG] ",n)}};
